@@ -49,10 +49,10 @@ function IndentifyWrapper() {
     const url = useMemo(() => `https://web.devmyid.uz/?session_id=${params.get("sessionId")}&iframe=true&theme=light&lang=ru&redirect_uri=https://paynet-loan-3.vercel.app`, [])
     return (
         <div className="face-container">
-            <iframe style={{ width: "100%", height: "100%" }}
+            <iframe style={{ width: "100%", height: "100%", border: "none" }}
                     id="myid_iframe"
                     src={url}
-                    allow="camera;fullscreen" allowFullScreen></iframe>
+                    allow="camera;fullscreen" allowFullScreen={true}></iframe>
         </div>
     );
 }
