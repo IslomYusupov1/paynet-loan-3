@@ -1,7 +1,8 @@
-import {useMemo, useState} from "react";
+import {useEffect, useMemo} from "react";
+import {useSearchParams} from "react-router-dom";
 
 function IndentifyWrapper() {
-    const [errorText, setErrorText] = useState("");
+    const [params] = useSearchParams();
     const MyIDStatus = {
         EXCEPTION: -1,
         IN_PROGRESS: 0,
@@ -13,57 +14,45 @@ function IndentifyWrapper() {
         LOADING: 100,
         LOADED: 101,
     };
+    useEffect(() => {
+        window.addEventListener("message", (e) => {
+            if (e.data.source != "MyIDWebSDK") return;
+            switch (e.data.status) {
+                case MyIDStatus.EXCEPTION:
+                    console.error(
+                        "MyID Iframe failed to load properly or a runtime error occurred.",
+                        e.data.error
+                    );
+                    break;
+                case MyIDStatus.IN_PROGRESS:
+                    localStorage.setItem("data", JSON.stringify(e.data));
+                    break;
+                case MyIDStatus.LIVENESS_PASSED:
+                    localStorage.setItem("data", JSON.stringify(e.data));
+                    // yourSuccessCallback(e.data);
+                    break;
+                case MyIDStatus.LIVENESS_FAILED:
+                    localStorage.setItem("data", JSON.stringify(e.data));
+                    // yourFailCallback(e.data);
+                    break;
+                case MyIDStatus.RETRY:
+                    localStorage.setItem("data", JSON.stringify(e.data));
+                    break;
+                case MyIDStatus.EXITED:
+                    break;
+                default:
+                    console.log("Unknown status:", e.data);
+            }
+        });
+    }, []);
 
-
-    window.addEventListener("message", (e) => {
-        if (e.data.source != "MyIDWebSDK") return;
-        switch (e.data.status) {
-            case MyIDStatus.EXCEPTION:
-                console.error(
-                    "MyID Iframe failed to load properly or a runtime error occurred.",
-                    e.data.error
-                );
-                setErrorText(e.data.error);
-                break;
-            case MyIDStatus.IN_PROGRESS:
-                setErrorText("Client interacted with the iframe.");
-                localStorage.setItem("data", JSON.stringify(e.data));
-                break;
-            case MyIDStatus.LIVENESS_PASSED:
-                setErrorText(e.data)
-                console.log(e.data, "liveness_passed")
-                localStorage.setItem("data", JSON.stringify(e.data));
-                // yourSuccessCallback(e.data);
-                break;
-            case MyIDStatus.LIVENESS_FAILED:
-                console.log(e.data.result_code, e.data.result_note);
-                localStorage.setItem("data", JSON.stringify(e.data));
-                setErrorText(e.data.result_code)
-                setErrorText( e.data.result_note)
-                // yourFailCallback(e.data);
-                break;
-            case MyIDStatus.RETRY:
-                setErrorText("Client is trying again.");
-                localStorage.setItem("data", JSON.stringify(e.data));
-                break;
-            case MyIDStatus.EXITED:
-                setErrorText("Client chose to return to your application early.");
-                break;
-            default:
-                console.log("Unknown status:", e.data);
-        }
-    });
-    // const redirectUrl = "http:/5114be9a-6448-4e1e-bc80-fe78a6e97237/localhost:5173/loan"
-    const token = ""
-    const url = useMemo(() => `
-    https://web.devmyid.uz/?session_id=${token}&iframe=true&theme=light&lang=ru`, [])
+    const url = useMemo(() => `https://web.devmyid.uz/?session_id=${params.get("sessionId")}&iframe=true&theme=light&lang=ru&redirect_uri=https://paynet-loan-3.vercel.app`, [])
     return (
         <div className="face-container">
             <iframe style={{ width: "100%", height: "100%" }}
                     id="myid_iframe"
                     src={url}
                     allow="camera;fullscreen" allowFullScreen></iframe>
-            <span className="span-iframe">{errorText}</span>
         </div>
     );
 }

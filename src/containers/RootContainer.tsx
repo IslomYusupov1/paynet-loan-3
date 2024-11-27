@@ -7,7 +7,7 @@ function RootContainer() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<IndentifyWrapper />}/>
+                <Route path="/identify" element={<IndentifyWrapper />}/>
                 <Route path="/loan" element={<LoanWrapper />}/>
             </Routes>
         </BrowserRouter>
