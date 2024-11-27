@@ -52,7 +52,7 @@ function IndentifyWrapper() {
             <iframe style={{ width: "100%", height: "100%", border: "none" }}
                     id="myid_iframe"
                     src={url}
-                     allowFullScreen={true}></iframe>
+                    allow="camera;fullscreen" allowFullScreen={true}></iframe>
         </div>
     );
 }
