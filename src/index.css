@@ -1,3 +1,18 @@
+body {
+  padding: 0;
+  max-height: 100%;
+  font-family: "Nunito", sans-serif;
+  overflow: hidden;
+  max-width: 500px;
+  margin: 0 auto;
+}
+p , h2, span, h1{
+  margin: 0;
+  padding: 0;
+}
+.main-height-container {
+  margin-top: 50px !important;
+}
 .face-container {
   width: 100%;
   background: white;

@@ -1,0 +1,316 @@
+.overlay{
+    position: fixed;
+    top: 0;
+    /*transform: translateY(100vh);*/
+    transition: 0.4s ease-in-out;
+    opacity: 1;
+    bottom: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    background: rgba(0, 0, 0, 0);
+    z-index: -1;
+}
+.overlay.open {
+    opacity: 1;
+    z-index: 10;
+}
+.main-page-layout {
+    /*width: 100%;*/
+    position: relative;
+    height: 100vh;
+    z-index: 1;
+    background: radial-gradient(337.24% 100% at 50% 100%, #102BDC 32.4%, #A2F8FB 54.4%, #A2F8FB 66.4%, #ECF2F5 84.4%);
+}
+.identify-popup {
+    position: fixed;
+    bottom: 0;
+    max-width: 500px;
+    left: 0;
+    transform: translateY(400px);
+    transition: 0.4s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    right: 0;
+    background: white;
+    height: 350px;
+    z-index: 11;
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+}
+.identify-popup.open {
+    transform: translateY(0);
+}
+.identify-popup .top-image {
+    width: 54px;
+    height: 5px;
+    margin: 0 auto;
+    padding: 8px 0;
+}
+.identify-popup-content {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    align-items: start;
+    margin-top: 15px;
+    gap: 24px;
+    padding: 0 30px;
+}
+.identify-popup-content img {
+    width: 58px;
+    height: 55px;
+}
+.identify-popup-content h2 {
+    font-size: 22px;
+    line-height: 24.2px;
+    font-weight: 700;
+}
+.identify-popup-content p {
+    font-size: 16px;
+    line-height: 17.6px;
+    font-weight: 400;
+    color: #9EA3AD;
+}
+.identify-popup-content button {
+    border: none;
+    padding: 25px 20px;
+    position: relative;
+    background: #18AD4F;
+    border-radius: 45px;
+    height: 60px;
+    font-size: 22px;
+    outline: none;
+    font-weight: 700;
+    line-height: 24.2px;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.identify-popup-content button:disabled {
+    background: rgba(24, 173, 79, 0.3);
+}
+.main-page-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 0 35px;
+    justify-content: space-between;
+    height: 100%;
+}
+.main-page-wrapper .main-page-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    animation: shake 4s infinite linear;
+}
+.main-page-layout .main-page-wrapper .main-page-header {
+    display: flex;
+    justify-content: space-between;
+    text-align: start;
+    align-items: start;
+}
+.main-page-layout .main-page-wrapper .main-page-footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 40px;
+}
+.main-page-layout .main-page-wrapper .main-page-footer .main-page-footer-text-block {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-bottom: 30px;
+}
+.main-page-layout .main-page-wrapper .main-page-footer .main-page-footer-btn-block {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+}
+.main-page-layout .main-page-wrapper .main-page-footer h2 {
+    color: #FFFFFF;
+    font-size: 31px;
+    font-weight: 700;
+    line-height: 31px;
+    text-align: start;
+}
+.main-page-layout .main-page-wrapper .main-page-footer p {
+    font-size: 20px;
+    line-height: 22px;
+    font-weight: 400;
+    color: #B2BAF0;
+    text-align: start;
+}
+.main-page-layout .main-page-wrapper .main-page-footer button {
+    width: 100%;
+    height: 60px;
+    border: none;
+    border-radius: 35px;
+    padding: 25px 20px;
+    background: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 19px;
+    font-weight: 600;
+}
+.main-page-layout .main-page-wrapper .main-page-footer span {
+    color: #FFFFFF;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+@keyframes shake {
+    100%, 0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-35px);
+    }
+}
+@media screen and (max-width: 375px) {
+    .identify-popup-content h2 {
+        font-size: 20px;
+        line-height: 24.2px;
+        font-weight: 700;
+    }
+    .identify-popup-content p {
+        font-size: 14px;
+        line-height: 17.6px;
+        font-weight: 400;
+        color: #9EA3AD;
+    }
+    .identify-popup-content button {
+        border: none;
+        padding: 25px 20px;
+        background: #18AD4F;
+        border-radius: 45px;
+        height: 60px;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 24.2px;
+        color: #FFFFFF;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+}
+@media screen and (max-width: 350px) {
+    .main-page-layout .main-page-wrapper .main-page-header .logo-image {
+        width: 140px;
+    }
+    .main-page-wrapper .main-page-body img {
+        width: 270px;
+    }
+    .main-page-layout .main-page-wrapper .main-page-footer .main-page-footer-text-block h2 {
+        font-size: 24px;
+    }
+    .main-page-layout .main-page-wrapper .main-page-footer .main-page-footer-text-block p {
+        font-size: 15px;
+    }
+    .main-page-layout .main-page-wrapper .main-page-footer button {
+        font-size: 15px;
+    }
+    .main-page-layout .main-page-wrapper .main-page-footer span {
+        font-size: 14px;
+    }
+    .main-page-layout .main-page-wrapper .main-page-footer .main-page-footer-btn-block {
+        gap: 25px;
+    }
+    .main-page-layout .main-page-wrapper .main-page-footer .main-page-footer-text-block {
+        gap: 20px;
+        margin-bottom: 25px;
+    }
+}
+
+@media (max-height: 850px) {
+    .main-page-layout .main-page-wrapper .main-page-header .logo-image {
+        width: 150px;
+    }
+    .main-page-wrapper .main-page-body img {
+        width: 290px;
+    }
+    .main-page-layout .main-page-wrapper .main-page-footer .main-page-footer-text-block h2 {
+        font-size: 26px;
+    }
+    .main-page-layout .main-page-wrapper .main-page-footer .main-page-footer-text-block p {
+        font-size: 16px;
+    }
+    .main-page-layout .main-page-wrapper .main-page-footer button {
+        font-size: 16px;
+    }
+    .main-page-layout .main-page-wrapper .main-page-footer span {
+        font-size: 16px;
+    }
+    .main-page-layout .main-page-wrapper .main-page-footer .main-page-footer-btn-block {
+        gap: 25px;
+    }
+    .main-page-layout .main-page-wrapper .main-page-footer .main-page-footer-text-block {
+        gap: 20px;
+        margin-bottom: 25px;
+    }
+}
+@media (max-height: 800px) {
+    .main-page-layout .main-page-wrapper .main-page-header .logo-image {
+        width: 130px;
+    }
+    .main-page-wrapper .main-page-body img {
+        width: 270px;
+    }
+    .main-page-layout .main-page-wrapper .main-page-footer .main-page-footer-text-block h2 {
+        font-size: 25px;
+    }
+    .main-page-layout .main-page-wrapper .main-page-footer .main-page-footer-text-block p {
+        font-size: 15px;
+    }
+    .main-page-layout .main-page-wrapper .main-page-footer button {
+        font-size: 15px;
+        font-weight: 600;
+    }
+    .main-page-layout .main-page-wrapper .main-page-footer span {
+        font-size: 15px;
+    }
+    .main-page-layout .main-page-wrapper .main-page-footer .main-page-footer-btn-block {
+        gap: 20px;
+    }
+    .main-page-layout .main-page-wrapper .main-page-footer .main-page-footer-text-block {
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-height: 700px) {
+    .main-page-layout .main-page-wrapper .main-page-header .logo-image {
+        width: 130px;
+    }
+    .main-page-wrapper .main-page-body img {
+        width: 240px;
+    }
+    .main-page-layout .main-page-wrapper .main-page-footer .main-page-footer-text-block h2 {
+        font-size: 23px;
+    }
+    .main-page-layout .main-page-wrapper .main-page-footer .main-page-footer-text-block p {
+        font-size: 14px;
+    }
+    .main-page-layout .main-page-wrapper .main-page-footer button {
+        font-size: 14px;
+        font-weight: 600;
+    }
+    .main-page-layout .main-page-wrapper .main-page-footer span {
+        font-size: 14px;
+    }
+    .main-page-layout .main-page-wrapper .main-page-footer .main-page-footer-btn-block {
+        gap: 15px;
+    }
+    .main-page-layout .main-page-wrapper .main-page-footer .main-page-footer-text-block {
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+}

@@ -1,0 +1,289 @@
+.loan-page-layout {
+    /*width: 100%;*/
+    position: relative;
+    height: 100vh;
+    z-index: 1;
+    background: #FFFFFF;
+}
+.loan-page-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 0 15px;
+    height: 100%;
+    gap: 20px;
+}
+
+.loan-page-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.loan-page-header p {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 27px;
+    color: #000000;
+}
+.loan-page-body {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    text-align: start;
+}
+.styled-input {
+    width: calc(100% - 30px);
+    height: 48px;
+    padding: 20px 15px 0 15px;
+    border: none;
+    font-size: 19px;
+    background-color: #ECEDEF;
+    font-weight: 600;
+    color: #242424;
+    border-radius: 20px;
+    outline: none;
+}
+.filled-input-wrapper {
+    position: relative;
+    height: 68px;
+    width: 100%;
+}
+.filled-input-wrapper .label {
+    position: absolute;
+    top: 22px;
+    left: 15px;
+    color: #92929A;
+    font-size: 19px;
+    transition: 0.2s ease-in-out;
+    font-weight: 600;
+    z-index: 0;
+    pointer-events: none;
+}
+.filled-input-wrapper:focus-within .label,
+.filled-input-wrapper .label.active {
+    top: 10px;
+    font-size: 14px;
+}
+.input-info-text {
+    font-size: 15px;
+    font-weight: 400;
+    margin-top: 5px;
+    color: #9EA3AD;
+}
+
+.slider-container {
+    background: #f0f1f3;
+    padding: 10px 20px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: calc(100% - 40px);
+    font-family: Arial, sans-serif;
+}
+
+.slider-label {
+    font-size: 14px;
+    color: #93939B;
+    font-weight: 600;
+    margin-bottom: 1px;
+    line-height: 15.5px;
+}
+.slider-value {
+    font-size: 18px;
+    color: #242424;
+    font-weight: 600;
+    margin: 5px 0;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 6px;
+    background: #ccc;
+    border-radius: 5px;
+    outline: none;
+    margin: 10px 0;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #00b04f;
+    cursor: pointer;
+    transition: background 0.3s;
+    position: relative;
+    z-index: 1;
+}
+.slider::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 20px;
+    /*background: linear-gradient(to right, #00b04f 0%, #00b04f var(--progress), #ddd var(--progress), #ddd 100%);*/
+    border-radius: 2px;
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #0fa958;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.slider-range {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 12px;
+    color: #808080;
+}
+
+.month-field {
+    background: #ECEDEF;
+    height: 68px;
+    position: relative;
+    padding: 0 0 0 15px;
+    width: calc(100% - 15px);
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    text-align: start;
+    border-radius: 20px;
+}
+.month-field label {
+    font-size: 19px;
+}
+.month-field .month-field-select {
+    position: absolute;
+    display: none;
+    top: 55px;
+    left: 0;
+    /*display: flex;*/
+    flex-direction: column;
+    list-style: none;
+    max-height: 200px;
+    border-radius: 18px;
+    padding: 10px 15px;
+    width: calc(100% - 30px);
+    background: #FFFFFF;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+.month-field .month-label {
+    display: flex;
+    position: absolute;
+    top: 22px;
+    width: calc(100% - 30px);
+    left: 15px;
+    justify-content: space-between;
+    color: #92929A;
+    font-size: 19px;
+    transition: 0.2s ease-in-out;
+    font-weight: 600;
+    z-index: 0;
+    pointer-events: none;
+}
+.loan-page-footer {
+    position: absolute;
+    bottom: 30px;
+    gap: 18px;
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    align-items: start;
+    width: calc(100% - 30px);
+}
+.loan-page-footer .checkbox-block {
+    display: flex;
+    overflow: hidden;
+    text-align: start;
+    gap: 10px;
+    align-items: center;
+}
+.loan-page-footer .checkbox-block .checkbox-text {
+    font-weight: 500;
+    font-size: 15px;
+    color: #000000;
+    line-height: 16.5px;
+}
+.loan-page-footer button {
+    background: #E0FCE6;
+    width: 100%;
+    height: 56px;
+    border-radius: 52px;
+    border: none;
+    font-size: 19px;
+    font-weight: 500;
+    color: #AEDCC4;
+    transition: 0.1s ease-in-out;
+    outline: none;
+}
+.loan-page-footer button.checked {
+    background: #13AE4E;
+    color: #FFFFFF;
+}
+.custom-checkbox {
+    display: flex;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    gap: 15px;
+}
+
+.custom-checkbox input[type="checkbox"] {
+    display: none;
+}
+
+.checkbox-mark {
+    width: 35px;
+    height: 27px;
+    border: 2px solid #D1D1D1;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.custom-checkbox input[type="checkbox"]:checked + .checkbox-mark {
+    background-color: #28a745; /* Зеленый цвет */
+    border-color: #28a745;
+}
+
+.checkbox-mark::before {
+    content: "";
+    /*font-size: 16px;*/
+    /*color: white;*/
+    width: 15px;
+    height: 15px;
+    /*display: none;*/
+    background-image: url('../../../assets/checked.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.custom-checkbox input[type="checkbox"]:checked + .checkbox-mark::before {
+    /*display: block;*/
+}
+.loan-page-body-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 30px
+}
+.loan-page-body-contact .loan-page-body-contact-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.loan-page-body-contact .loan-page-body-contact-content p {
+    font-weight: 700;
+    font-size: 20px;
+    color: #000000;
+}
