@@ -3,7 +3,7 @@
     top: 0;
     /*transform: translateY(100vh);*/
     transition: 0.4s ease-in-out;
-    opacity: 1;
+    opacity: 0;
     bottom: 0;
     right: 0;
     width: 100vw;
@@ -16,6 +16,9 @@
     opacity: 1;
     z-index: 10;
 }
+.overlay.calendar {
+    background: rgba(0, 0, 0, 0.2);
+}
 .main-page-layout {
     /*width: 100%;*/
     position: relative;
@@ -27,6 +30,7 @@
     position: fixed;
     bottom: 0;
     max-width: 500px;
+    margin: 0 auto;
     left: 0;
     transform: translateY(400px);
     transition: 0.4s ease-in-out;
@@ -38,6 +42,10 @@
     z-index: 11;
     border-top-left-radius: 24px;
     border-top-right-radius: 24px;
+}
+.identify-popup.calendar {
+    height: 480px;
+    transform: translateY(550px);
 }
 .identify-popup.open {
     transform: translateY(0);
@@ -64,7 +72,8 @@
 .identify-popup-content h2 {
     font-size: 22px;
     line-height: 24.2px;
-    font-weight: 700;
+    text-align: start;
+    font-weight: 600;
 }
 .identify-popup-content p {
     font-size: 16px;
@@ -81,7 +90,7 @@
     height: 60px;
     font-size: 22px;
     outline: none;
-    font-weight: 700;
+    font-weight: 600;
     line-height: 24.2px;
     color: #FFFFFF;
     display: flex;
@@ -135,7 +144,7 @@
 .main-page-layout .main-page-wrapper .main-page-footer h2 {
     color: #FFFFFF;
     font-size: 31px;
-    font-weight: 700;
+    font-weight: 600;
     line-height: 31px;
     text-align: start;
 }
@@ -178,7 +187,7 @@
     .identify-popup-content h2 {
         font-size: 20px;
         line-height: 24.2px;
-        font-weight: 700;
+        font-weight: 600;
     }
     .identify-popup-content p {
         font-size: 14px;
@@ -193,7 +202,7 @@
         border-radius: 45px;
         height: 60px;
         font-size: 18px;
-        font-weight: 700;
+        font-weight: 600;
         line-height: 24.2px;
         color: #FFFFFF;
         display: flex;

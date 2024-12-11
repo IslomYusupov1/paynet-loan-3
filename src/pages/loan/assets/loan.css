@@ -1,6 +1,7 @@
 .loan-page-layout {
     /*width: 100%;*/
     position: relative;
+    font-family: "Nunito", sans-serif;
     height: 100vh;
     z-index: 1;
     background: #FFFFFF;
@@ -38,7 +39,7 @@
     border: none;
     font-size: 19px;
     background-color: #ECEDEF;
-    font-weight: 600;
+    font-weight: 500;
     color: #242424;
     border-radius: 20px;
     outline: none;
@@ -52,10 +53,11 @@
     position: absolute;
     top: 22px;
     left: 15px;
-    color: #92929A;
+    color: #93939B;
     font-size: 19px;
     transition: 0.2s ease-in-out;
     font-weight: 600;
+    /*letter-spacing: -10px;*/
     z-index: 0;
     pointer-events: none;
 }
@@ -81,7 +83,7 @@
     flex-direction: column;
     align-items: start;
     width: calc(100% - 40px);
-    font-family: Arial, sans-serif;
+    /*font-family: Arial, sans-serif;*/
 }
 
 .slider-label {
@@ -89,7 +91,7 @@
     color: #93939B;
     font-weight: 600;
     margin-bottom: 1px;
-    line-height: 15.5px;
+    line-height: 15.4px;
 }
 .slider-value {
     font-size: 18px;
@@ -157,6 +159,7 @@ input[type="range"]::-moz-range-thumb {
 }
 .month-field label {
     font-size: 19px;
+    font-weight: 600;
 }
 .month-field .month-field-select {
     position: absolute;
@@ -180,12 +183,37 @@ input[type="range"]::-moz-range-thumb {
     width: calc(100% - 30px);
     left: 15px;
     justify-content: space-between;
+    align-items: center;
     color: #92929A;
     font-size: 19px;
     transition: 0.2s ease-in-out;
     font-weight: 600;
     z-index: 0;
     pointer-events: none;
+}
+.month-field .month-label img {
+    height: 24px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 24px;
+}
+.month-field .month-label label {
+    position: absolute;
+    top: 0;
+    font-size: 19px;
+    font-weight: 500;
+}
+.month-field .month-label label.active {
+    top: -12px;
+    font-size: 14px;
+}
+.month-field .month-label span {
+    position: absolute;
+    top: 8px;
+    color: black;
+    font-size: 19px;
+    font-weight: 500;
 }
 .loan-page-footer {
     position: absolute;
@@ -240,8 +268,8 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .checkbox-mark {
-    width: 35px;
-    height: 27px;
+    width: 31px;
+    height: 31px;
     border: 2px solid #D1D1D1;
     border-radius: 10px;
     display: flex;
@@ -259,11 +287,11 @@ input[type="range"]::-moz-range-thumb {
     content: "";
     /*font-size: 16px;*/
     /*color: white;*/
-    width: 15px;
-    height: 15px;
+    width: 31px;
+    height: 31px;
     /*display: none;*/
     background-image: url('../../../assets/checked.png');
-    background-size: cover;
+    /*background-size: contain;*/
     background-position: center;
     background-repeat: no-repeat;
 }
@@ -286,4 +314,7 @@ input[type="range"]::-moz-range-thumb {
     font-weight: 700;
     font-size: 20px;
     color: #000000;
+}
+.calendar-popup {
+    background: white;
 }

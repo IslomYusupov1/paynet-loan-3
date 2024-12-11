@@ -8,28 +8,27 @@ import "./assets/main.css";
 import backIcon from "../../assets/back.png";
 import logoIcon from "../../assets/logo.png";
 import cashIcon from "../../assets/cash.png";
-import vector from "../../assets/vector.png";
 import identify from "../../assets/identify.png";
 import {useIdentifyContext} from "../../api/identify/IdentifyContext.ts";
 import LoaderSpin from "../../components/loader/LoaderSpin.tsx";
+import ModalPopUp from "../../components/ui/modal/ModalPopUp.tsx";
 
 function MainWrapper() {
     const [openSelect, setOpenSelect] = useState(false);
     const [loading, setLoading] = useState(false);
 
     const navigate = useNavigate();
-    const { IdentifyApi } = useIdentifyContext();
+    const {IdentifyApi} = useIdentifyContext();
 
     const getSessionId = async () => {
         setLoading(true);
-        await IdentifyApi.getSessionId({ applicationId: "27bdeeb2-6e3f-41a4-b593-86830298156f" }).then(res => {
-           setLoading(false);
-           navigate(`identify?sessionId=${res.data.sessionId}&birthDate=${res.data.birthDate}&pinfl=${res.data.pinfl}&locale=${res.data.locale}`);
+        await IdentifyApi.getSessionId({applicationId: "27bdeeb2-6e3f-41a4-b593-86830298156f"}).then(res => {
+            setLoading(false);
+            navigate(`identify?&applicationId=27bdeeb2-6e3f-41a4-b593-86830298156f&sessionId=${res.data.sessionId}&birthDate=${res.data.birthDate}&pinfl=${res.data.pinfl}&locale=${res.data.locale}`);
         }).catch(() => {
             setLoading(false);
         })
     }
-
     return (
         <section className="main-page-layout">
             <div className="main-page-wrapper">
@@ -51,9 +50,20 @@ function MainWrapper() {
                     </div>
                 </div>
             </div>
-            <div onClick={() => setOpenSelect(false)} className={`overlay ${openSelect ? "open" : ""}`}/>
-            <div className={`identify-popup ${openSelect ? "open" : ""}`}>
-                <img src={vector} alt="" className="top-image"/>
+            {/*<div onClick={() => setOpenSelect(false)} className={`overlay ${openSelect ? "open" : ""}`}/>*/}
+            {/*<div className={`identify-popup ${openSelect ? "open" : ""}`}>*/}
+            {/*    <img src={vector} alt="" className="top-image"/>*/}
+            {/*    <div className="identify-popup-content">*/}
+            {/*        <img src={identify} alt=""/>*/}
+            {/*        <h2>Пройдите быструю идентификацию в MyID</h2>*/}
+            {/*        <p>Для продолжения нам необходимо убедится что это действительно вы</p>*/}
+            {/*        <button disabled={loading} onClick={getSessionId}>*/}
+            {/*            <span>Пройти идентификацию</span>*/}
+            {/*            {loading && <LoaderSpin/>}*/}
+            {/*        </button>*/}
+            {/*    </div>*/}
+            {/*</div>*/}
+            <ModalPopUp close={() => setOpenSelect(false)} isOpen={openSelect}>
                 <div className="identify-popup-content">
                     <img src={identify} alt=""/>
                     <h2>Пройдите быструю идентификацию в MyID</h2>
@@ -63,7 +73,7 @@ function MainWrapper() {
                         {loading && <LoaderSpin/>}
                     </button>
                 </div>
-            </div>
+            </ModalPopUp>
         </section>
     );
 }

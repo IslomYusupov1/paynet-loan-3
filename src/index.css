@@ -1,7 +1,7 @@
 body {
   padding: 0;
   max-height: 100%;
-  font-family: "Nunito", sans-serif;
+  font-family: "Nunito", sans-serif !important;
   overflow: hidden;
   max-width: 500px;
   margin: 0 auto;

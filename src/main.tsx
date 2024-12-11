@@ -1,6 +1,6 @@
 import { createRoot } from 'react-dom/client'
-import './index.css'
 import AppContainer from "./containers/AppContainer.tsx";
+import './index.css'
 
 createRoot(document.getElementById('root')!).render(
   <>
