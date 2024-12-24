@@ -1,10 +1,10 @@
 import rejecetIcon from "../../assets/reject.png";
 import InputMask from "react-input-mask";
 import clearIcon from "../../assets/clear.png";
-import {useSearchParams} from "react-router-dom";
+// import {useSearchParams} from "react-router-dom";
 
 function CardReject() {
-    const [params] = useSearchParams();
+    // const [params] = useSearchParams();
     return (
         <div className="card-page-layout">
             <div className="card-page-wrapper">
