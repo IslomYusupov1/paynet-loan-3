@@ -22,10 +22,19 @@ function IndentifyWrapper() {
 
     const sendAuthCode = useCallback((code: string) => {
         if (code.length > 0) {
-            IdentifyApi.sendAuthCode({ applicationId: params.get("applicationId") as string, code: code}).then(res => {
-                console.log(res, "res")
-                navigate(`/loan?step=1&applicationId=${params.get("applicationId")}`);
-            }).catch((error) => console.log(error))
+            if (params?.get("type") === "accept") {
+                navigate(`/card?applicationId=${params.get("applicationId")}&amount=${params.get("amount")}&offerType=${params.get("offerType")}`);
+            } else {
+                IdentifyApi.sendAuthCode({ applicationId: params.get("applicationId") as string, code: code}).then(res => {
+                    if (res.data.redirectUrl) {
+                        const url = new URL(res.data.redirectUrl);
+                        const redirectUrl = url.pathname + url.search;
+                        return navigate(redirectUrl)
+                    }
+                    console.log(res.data)
+                    navigate(`/loan?step=1&applicationId=${params.get("applicationId")}`);
+                }).catch((error) => console.log(error))
+            }
         }
     }, [])
 
@@ -56,10 +65,12 @@ function IndentifyWrapper() {
 
     useEffect(() => {
         window.addEventListener("message", myIdCheck);
+
+        return () => window.removeEventListener("message", myIdCheck);
     }, []);
 
     const url = useMemo(
-        () => `https://web.devmyid.uz/?iframe=true&session_id=${params.get("sessionId")}&birth_date=${params?.get("birthDate")}&pinfl=${params.get("pinfl")}&theme=light&lang=${params.get("locale")}`, [])
+        () => `https://web.myid.uz/?iframe=true&session_id=${params.get("sessionId")}&birth_date=${params?.get("birthDate")}&pinfl=${params.get("pinfl")}&theme=light&lang=${params.get("locale")}`, [])
     return (
         <div className="face-container">
             <iframe style={{ width: "100%", height: "100%", border: "none" }}

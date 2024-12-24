@@ -1,0 +1,232 @@
+.status-page-layout {
+    /*width: 100%;*/
+    position: relative;
+    font-family: "Nunito", sans-serif;
+    height: 100vh;
+    z-index: 1;
+    background: #FFFFFF;
+}
+.status-page-wrapper {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 0 20px;
+    height: 100%;
+    overflow: auto;
+    gap: 20px;
+}
+.status-page-wrapper .status-page-header {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+}
+.status-page-header h1 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #000000;
+}
+.status-page-header .status-page-header-amount {
+    background: #EFF0F2;
+    width: 100%;
+    height: 140px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+.status-page-header .status-page-header-amount img{
+    margin-bottom: 5px;
+}
+.status-page-header .status-page-header-amount span {
+    font-size: 20px;
+    font-weight: 400;
+    color: #000000;
+    line-height: 24px;
+}
+.status-page-body {
+    display: flex;
+    flex-direction: column;
+    padding: 3px;
+    text-align: start;
+    width: 100%;
+    gap: 20px;
+    /*height: calc(100vh - 340px);*/
+    /*overflow: auto;*/
+}
+.status-page-body .reject-text {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 300;
+    gap: 20px;
+    color: #000000;
+}
+.status-page-body .body-title {
+    font-size: 16px;
+    margin-top: 10px;
+    font-weight: 400;
+    text-align: start;
+    line-height: 17.6px;
+    color: #000000;
+    width: 90%;
+}
+.status-page-body .body-loan-info {
+    display: flex;
+    flex-direction: column;
+}
+.status-page-body .body-loan-info h3 {
+    font-size: 20px;
+    color: #000000;
+    font-weight: 600;
+    line-height: 27px;
+    margin-bottom: 10px;
+}
+.active-term {
+    color: #FF4800 !important;
+}
+.status-page-body .body-loan-info .body-loan-info-body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.status-page-body .body-loan-info .body-loan-info-body .body-loan-info-body-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+.status-page-body .body-loan-info .body-loan-info-body .body-loan-info-body-wrapper .body-loan-info-body-wrapper-content {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    width: 40%;
+}
+.status-page-body .body-loan-info .body-loan-info-body .body-loan-info-body-wrapper .body-loan-info-body-wrapper-content span {
+    font-size: 14px;
+    font-weight: 400;
+    color: #9EA3AD;
+    line-height: 19.1px;
+}
+.status-page-body .body-loan-info .body-loan-info-body .body-loan-info-body-wrapper .body-loan-info-body-wrapper-content p {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 24.55px;
+    color: #242424;
+}
+.body-loan-footer {
+    background: #ECEDEF;
+    width: calc(100% - 40px);
+    display: flex;
+    margin-top: 10px;
+    justify-content: space-between;
+    padding: 20px;
+    border-radius: 20px;
+}
+.body-loan-footer span {
+    font-size: 17px;
+    font-weight: 600;
+    color: #000000;
+}
+
+.status-page-footer {
+    position: initial !important;
+    /*bottom: 30px;*/
+    gap: 18px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    align-items: start;
+    width: 100%;
+}
+.status-error-page-footer {
+    position: absolute;
+    bottom: 30px;
+}
+@media (max-width: 420px) {
+    .status-page-header .status-page-header-amount span {
+        font-size: 16px;
+    }
+    .status-page-header-amount img {
+        width: 40px;
+    }
+}
+@media (max-width: 400px) {
+    .status-page-wrapper {
+        gap: 5px;
+    }
+    .status-page-header .status-page-header-amount img {
+        width: 40px;
+        height: 40px;
+    }
+    .status-page-header .status-page-header-amount span {
+        font-size: 18px;
+    }
+    .status-page-body .body-title {
+        font-size: 14px;
+        line-height: 14px;
+    }
+    .status-page-body .body-loan-info h3 {
+        font-size: 18px;
+    }
+    .status-page-body .body-loan-info .body-loan-info-body .body-loan-info-body-wrapper .body-loan-info-body-wrapper-content span {
+        font-size: 13px;
+    }
+    .status-page-body .body-loan-info .body-loan-info-body .body-loan-info-body-wrapper .body-loan-info-body-wrapper-content p {
+        font-size: 17px;
+    }
+    .status-page-body .body-loan-info .body-loan-info-body {
+        gap: 10px
+    }
+    .body-loan-footer {
+        padding: 15px;
+    }
+    .status-page-body .body-loan-info h3 {
+        margin-bottom: 5px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .status-page-body {
+        gap: 10px;
+    }
+    .status-page-header .status-page-header-amount {
+        height: 110px;
+    }
+    .status-page-header .status-page-header-amount img {
+        width: 30px;
+        height: 30px;
+    }
+    .status-page-body .body-loan-info h3 {
+        font-size: 16px;
+    }
+    .status-page-body .body-loan-info .body-loan-info-body {
+        gap: 7px;
+    }
+    .status-page-body .body-loan-info .body-loan-info-body .body-loan-info-body-wrapper .body-loan-info-body-wrapper-content p {
+        font-size: 16px;
+    }
+    .status-page-body .body-loan-info .body-loan-info-body .body-loan-info-body-wrapper .body-loan-info-body-wrapper-content span {
+        font-size: 12px;
+    }
+    .body-loan-footer {
+        padding: 12px;
+    }
+    .body-loan-footer span {
+        font-size: 14px;
+    }
+    .body-loan-footer img {
+        width: 15px;
+    }
+    .status-page-header h1 {
+        font-size: 17px;
+    }
+    .status-page-header .status-page-header-amount span {
+        font-size: 15px;
+        line-height: normal;
+    }
+    .status-page-footer {
+        gap: 10px;
+    }
+}

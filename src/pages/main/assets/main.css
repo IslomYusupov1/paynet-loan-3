@@ -26,6 +26,78 @@
     z-index: 1;
     background: radial-gradient(337.24% 100% at 50% 100%, #102BDC 32.4%, #A2F8FB 54.4%, #A2F8FB 66.4%, #ECF2F5 84.4%);
 }
+.term-page-layout {
+    position: relative;
+    font-family: "Nunito", sans-serif;
+    height: 100vh;
+    z-index: 1;
+    background: #FFFFFF;
+}
+.term-page-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+    height: 100%;
+    gap: 20px;
+}
+.term-page-header {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    text-align: start;
+}
+.term-page-wrapper .loan-page-footer {
+    width: calc(100% - 40px);
+}
+.term-page-header .term-page-header-img {
+    background: radial-gradient(337.24% 100% at 50% 100%, #A2F8FB 0%, #ECF2F5 100%);
+    width: 100%;
+    height: 157px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.term-page-header .term-page-header-img img {
+    width: 150px;
+    height: 150px;
+}
+.term-page-header h2 {
+    text-align: start !important;
+    font-size: 31px;
+    font-weight: 600;
+    color: #000000;
+    line-height: 31px;
+}
+.term-page-header span {
+    font-size: 20px;
+    font-weight: 400;
+    color: #000000;
+    line-height: 22px;
+}
+.term-page-body {
+    border: 1px solid #EAEAEA;
+    border-radius: 20px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
+}
+.term-page-body div {
+    display: flex;
+    justify-content: space-between;
+}
+.term-page-body div span {
+    font-size: 16px;
+    font-weight: 500;
+    color: #9EA3AD;
+}
+.term-page-body div p {
+    font-size: 16px;
+    font-weight: 600;
+    color: #242424;
+}
 .identify-popup {
     position: fixed;
     bottom: 0;
@@ -43,9 +115,19 @@
     border-top-left-radius: 24px;
     border-top-right-radius: 24px;
 }
+.identify-popup .modal-body {
+    background: white;
+}
+.identify-popup .modal-body.scroll-y {
+    overflow-y: scroll;
+}
 .identify-popup.calendar {
     height: 480px;
     transform: translateY(550px);
+}
+.identify-popup.relation {
+   height: 290px;
+   transform: translateY(550px);
 }
 .identify-popup.open {
     transform: translateY(0);
@@ -73,7 +155,7 @@
     font-size: 22px;
     line-height: 24.2px;
     text-align: start;
-    font-weight: 600;
+    font-weight: 500;
 }
 .identify-popup-content p {
     font-size: 16px;
@@ -91,6 +173,7 @@
     font-size: 22px;
     outline: none;
     font-weight: 600;
+    font-family: "Nunito", sans-serif;
     line-height: 24.2px;
     color: #FFFFFF;
     display: flex;
@@ -162,6 +245,7 @@
     border-radius: 35px;
     padding: 25px 20px;
     background: #FFFFFF;
+    font-family: "Nunito", sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -237,6 +321,39 @@
         gap: 20px;
         margin-bottom: 25px;
     }
+    .term-page-header .term-page-header-img {
+        height: 140px;
+    }
+    .term-page-header .term-page-header-img img {
+        width: 130px;
+        height: 130px;
+    }
+    .term-page-header h2 {
+        font-size: 26px;
+    }
+    .term-page-header span {
+        font-size: 16px;
+    }
+    .term-page-header {
+        gap: 10px;
+    }
+    .term-page-wrapper {
+        gap: 10px;
+    }
+    .term-page-wrapper .loan-page-footer .checkbox-block .checkbox-mark {
+        width: 29px;
+        height: 29px;
+    }
+    .term-page-wrapper .loan-page-footer .checkbox-block .checkbox-text {
+        font-size: 13px;
+    }
+    .term-page-wrapper .loan-page-footer button {
+        height: 48px;
+        font-size: 17px;
+    }
+    .term-page-body div p,.term-page-body div span {
+        font-size: 14px;
+    }
 }
 
 @media (max-height: 850px) {
@@ -264,6 +381,19 @@
     .main-page-layout .main-page-wrapper .main-page-footer .main-page-footer-text-block {
         gap: 20px;
         margin-bottom: 25px;
+    }
+    .term-page-header .term-page-header-img {
+        height: 150px;
+    }
+    .term-page-header .term-page-header-img img {
+        width: 140px;
+        height: 140px;
+    }
+    .term-page-header h2 {
+        font-size: 29px;
+    }
+    .term-page-header span {
+        font-size: 18px;
     }
 }
 @media (max-height: 800px) {
@@ -293,8 +423,55 @@
         gap: 20px;
         margin-bottom: 20px;
     }
+    .term-page-header .term-page-header-img {
+        height: 140px;
+    }
+    .term-page-header .term-page-header-img img {
+        width: 130px;
+        height: 130px;
+    }
+    .term-page-header h2 {
+        font-size: 28px;
+    }
+    .term-page-header span {
+        font-size: 17px;
+    }
 }
-
+@media (max-height: 750px) {
+    .term-page-header .term-page-header-img {
+        height: 140px;
+    }
+    .term-page-header .term-page-header-img img {
+        width: 130px;
+        height: 130px;
+    }
+    .term-page-header h2 {
+        font-size: 26px;
+    }
+    .term-page-header span {
+        font-size: 16px;
+    }
+    .term-page-header {
+        gap: 10px;
+    }
+    .term-page-wrapper {
+        gap: 10px;
+    }
+    .term-page-wrapper .loan-page-footer .checkbox-block .checkbox-mark {
+        width: 29px;
+        height: 29px;
+    }
+    .term-page-wrapper .loan-page-footer .checkbox-block .checkbox-text {
+        font-size: 13px;
+    }
+    .term-page-wrapper .loan-page-footer button {
+        height: 48px;
+        font-size: 17px;
+    }
+    .term-page-body div p,.term-page-body div span {
+        font-size: 14px;
+    }
+}
 @media (max-height: 700px) {
     .main-page-layout .main-page-wrapper .main-page-header .logo-image {
         width: 130px;
@@ -321,5 +498,38 @@
     .main-page-layout .main-page-wrapper .main-page-footer .main-page-footer-text-block {
         gap: 15px;
         margin-bottom: 20px;
+    }
+    .term-page-header .term-page-header-img {
+        height: 120px;
+    }
+    .term-page-header .term-page-header-img img {
+        width: 110px;
+        height: 110px;
+    }
+    .term-page-header h2 {
+        font-size: 25px;
+    }
+    .term-page-header span {
+        font-size: 15px;
+    }
+    .term-page-header {
+        gap: 10px;
+    }
+    .term-page-wrapper {
+        gap: 10px;
+    }
+    .term-page-wrapper .loan-page-footer .checkbox-block .checkbox-mark {
+        width: 29px;
+        height: 29px;
+    }
+    .term-page-wrapper .loan-page-footer .checkbox-block .checkbox-text {
+        font-size: 13px;
+    }
+    .term-page-wrapper .loan-page-footer button {
+        height: 48px;
+        font-size: 17px;
+    }
+    .term-page-body div p,.term-page-body div span {
+        font-size: 14px;
     }
 }

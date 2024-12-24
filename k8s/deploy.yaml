@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gate-webview
+  namespace: app-juicer
+  labels:
+    app: gate-webview
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gate-webview
+  template:
+    metadata:
+      labels:
+        app: gate-webview
+    spec:
+      containers:
+        - name: gate-webview
+          image: 172.20.4.17:5050/front/gate-webview:latest
+          ports:
+            - containerPort: 80
+          envFrom:
+            - configMapRef:
+                name: gate-webview-config
+      imagePullSecrets:
+        - name: prodfrontgitlabregistrysecret
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: app-juicer
+  name: gate-webview
+  labels:
+    app: gate-webview
+spec:
+  type: NodePort
+  selector:
+    app: gate-webview
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+      
+

@@ -2,7 +2,7 @@ FROM node:20-alpine
 
 WORKDIR /react-vite-app
 
-EXPOSE 3000
+EXPOSE 80
 
 COPY package.json yarn.lock ./
 

@@ -1,4 +1,7 @@
-body {
+#root {
+  scroll-behavior: smooth;
+}
+body, html {
   padding: 0;
   max-height: 100%;
   font-family: "Nunito", sans-serif !important;
@@ -6,12 +9,13 @@ body {
   max-width: 500px;
   margin: 0 auto;
 }
-p , h2, span, h1{
+p , h2, span, h1, h3, h4, h5, h6 {
   margin: 0;
   padding: 0;
+  font-family: "Nunito", sans-serif !important;
 }
 .main-height-container {
-  margin-top: 50px !important;
+  margin-top: 30px !important;
 }
 .face-container {
   width: 100%;
@@ -27,9 +31,133 @@ p , h2, span, h1{
   left: 50%;
   transform: translate(-50%, -50%);
 }
+.cursor-pointer {
+  cursor: pointer;
+}
 .span-iframe {
   position: absolute;
   top: 50px;
   font-size: 20px;
   right: 50px;
+}
+.hidden {
+  opacity: 0;
+}
+/* Webkit-браузеры */
+::-webkit-scrollbar {
+  display: none;
+  width: 0;
+}
+button:disabled {
+  transition: 0.1s ease-in-out;
+}
+/* Для Firefox */
+* {
+  scrollbar-width: none;
+}
+
+
+.select-options {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  transform: translateY(400px);
+  transition: 0.4s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  right: 0;
+  background: white;
+  height: 331px;
+  font-family: "Nunito", sans-serif !important;
+  max-width: 100%;
+  margin: 0 auto;
+  z-index: 11;
+  padding: 10px 20px;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+}
+.select-options.open {
+  transform: translateY(0);
+}
+.select-options img {
+  width: 70px;
+  margin: 0 auto;
+  padding: 8px 0;
+}
+.mt {
+  margin-top: 16px !important;
+}
+.select-options label {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  color: black;
+  cursor: pointer;
+  padding: 6px 0;
+  border-bottom: 1px solid #E5E7EB;
+}
+.select-options label span {
+  font-size: 18px;
+  color: #000;
+  width: 90%;
+  font-family: Geologica;
+  text-align: start;
+  border-right: 1px solid #E5E7EB;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 36px
+}
+.overlay{
+  position: fixed;
+  top: 0;
+  /*transform: translateY(100vh);*/
+  transition: 0.4s ease-in-out;
+  opacity: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: -1;
+}
+.overlay.open {
+  opacity: 1;
+  z-index: 10;
+}
+.custom-radio {
+  display: inline-block;
+  position: relative;
+  width: 3.5%;
+  text-align: center;
+  align-items: center;
+  padding-left: 30px; /* Отступ для отображения круга */
+  cursor: pointer;
+}
+
+.custom-radio input[type="radio"] {
+  display: none; /* Скрываем стандартный input */
+}
+
+.custom-radio .radio-circle {
+  position: absolute;
+  top: -12px;
+  left: 25%;
+  width: 24px; /* Диаметр внешнего круга */
+  height: 24px;
+  border: 1px solid #18AD4F; /* Цвет и толщина границы */
+  border-radius: 50%; /* Круглая форма */
+  transition: background-color 0.3s ease;
+}
+.custom-radio input[type="radio"]:checked + .radio-circle:after {
+  background-color: #18AD4F;
+}
+.custom-radio .radio-circle::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
 }

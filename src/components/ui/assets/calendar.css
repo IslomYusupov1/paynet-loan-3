@@ -18,6 +18,7 @@
     text-align: start;
     font-weight: 400 !important;
     color: black;
+    font-family: "Nunito", sans-serif;
     font-size: 17px;
 }
 .calendar-container .react-calendar__tile--active {
@@ -94,4 +95,23 @@
 
 .continue-button:hover {
     background-color: #218838;
+}
+
+@media (max-width: 360px) {
+    .calendar-container h2 {
+        font-size: 17px;
+    }
+    .calendar-container .react-calendar__navigation .react-calendar__navigation__label {
+        font-size: 16px;
+    }
+    .react-calendar__month-view__weekdays__weekday {
+        font-size: 13px;
+    }
+    .react-calendar__month-view__days button {
+        font-size: 16px;
+    }
+    .continue-button {
+        height: 50px;
+        font-size: 17px;
+    }
 }

@@ -1,0 +1,274 @@
+.contract-layout {
+	position: relative;
+	font-family: "Nunito", sans-serif;
+	z-index: 1;
+	height: 100vh;
+	overflow: auto;
+	background: rgb(238, 242, 245);
+}
+.contract-wrapper {
+	background: rgb(255, 255, 255);
+	padding: 0 20px;
+}
+.contract-wrapper .contract-header {
+	display: flex;
+	width: calc(100% - 10px);
+	padding: 5px;
+	justify-content: space-between;
+	align-items: center;
+}
+.contract-header.main-height-container {
+	padding-top: 50px;
+	margin-top: 0 !important;
+}
+.contract-wrapper .contract-header h1 {
+	font-size: 20px;
+	font-weight: 600;
+	color: #000000;
+}
+.contract-left {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	width: 252px;
+	height: 44px;
+}
+.contract-left h1 {
+	color: rgb(0, 0, 0);
+	font-family: Nunito, sans-serif;
+	font-size: 20px;
+	font-weight: 700;
+	line-height: 27px;
+	text-align: center;
+}
+.contract-section {
+	background: rgb(238, 242, 245);
+	padding: 16px;
+	display: flex;
+	overflow: auto;
+	flex-direction: column;
+	gap: 10px;
+	height: calc(100vh - 90px - 150px);
+}
+.contract-box {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	padding: 15px 14px 15px 14px;
+	border-radius: 15px;
+	background: rgb(255, 255, 255);
+}
+.contract-box-left {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.contract-box .contract-box-body {
+	display: flex;
+	flex-direction: column;
+}
+.contract-box .contract-box-text, .contract-box_text {
+	color: #6D7279;
+	font-size: 15px;
+	font-weight: 400;
+}
+.contract-cum {
+	font-size: 19px;
+	color: #242424;
+	font-weight: 600;
+}
+.contract-box-left h3 {
+	color: #242424;
+	font-size: 16px;
+	font-weight: 500;
+}
+.contract-box-left p {
+	color: #19A43C;
+	font-size: 16px;
+	font-weight: 500;
+}
+.contract-footer {
+	display: flex;
+	background: #FFFFFF;
+	justify-content: space-between;
+	text-align: center;
+	align-items: center;
+	gap: 5px;
+	padding: 15px;
+	border-radius: 15px;
+}
+.contract-footer p {
+	color: #B4B4B4;
+	font-size: 16px;
+	font-weight: 500;
+}
+.contract-page-footer {
+	width: calc(100% - 40px);
+	display: flex;
+	position: fixed !important;
+	padding: 0 20px;
+	justify-content: center;
+	text-align: center;
+	align-items: center;
+}
+
+.application-contact-layout {
+	font-family: "Nunito", sans-serif;
+	height: 100vh;
+	z-index: 1;
+	background: #FFFFFF;
+}
+.application-contact-layout .application-contact-wrapper {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	height: 100%;
+	gap: 20px;
+}
+.application-contact-header {
+	display: flex;
+	font-family: Nunito, sans-serif;
+	text-align: center;
+	align-items: center;
+	gap: 20px;
+	padding: 0 20px;
+}
+.application-contact-header h1 {
+	font-size: 20px;
+	font-weight: 700;
+	color: #000000;
+}
+.application-contact-body {
+	display: flex;
+	flex-direction: column;
+	height: calc(100vh - 120px);
+	overflow: auto;
+	gap: 20px;
+	padding: 0 15px;
+}
+.application-contact-body .application-contact-body-top {
+	background: #EFF0F2;
+	width: calc(100% - 40px);
+	/*height: 130px;*/
+	border-radius: 20px;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	justify-content: center;
+}
+.application-contact-body .application-contact-body-top .first-span {
+	font-size: 20px;
+	font-weight: 500;
+	margin-bottom: 10px;
+}
+.application-contact-body .application-contact-body-top span {
+	font-weight: 400;
+	color: #000000;
+	font-size: 16px;
+}
+.application-contact-body .application-contact-body-center {
+	display: flex;
+	flex-direction: column;
+	text-align: start;
+	gap: 20px;
+}
+.application-contact-body .application-contact-body-center h1 {
+	font-size: 20px;
+	font-weight: 600;
+	color: #000000;
+}
+.application-contact-body .application-contact-body-center .application-contact-body-center-items{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.application-contact-body .application-contact-body-center .application-contact-body-center-items .application-contact-body-center-items-left, .application-contact-body .application-contact-body-center .application-contact-body-center-items .application-contact-body-center-items-right {
+	display: flex;
+	flex-direction: column;
+	text-align: start;
+	width: 40%;
+}
+.application-contact-body .application-contact-body-center .application-contact-body-center-items .application-contact-body-center-items-left p, .application-contact-body .application-contact-body-center .application-contact-body-center-items .application-contact-body-center-items-right p {
+	color: #9EA3AD;
+	font-size: 14px;
+	font-weight: 500;
+}
+.application-contact-body .application-contact-body-center .application-contact-body-center-items .application-contact-body-center-items-left h4, .application-contact-body .application-contact-body-center .application-contact-body-center-items .application-contact-body-center-items-right h4 {
+	font-size: 18px;
+	font-weight: 600;
+	color: #000000;
+}
+.application-contact-body .application-contact-body-center .application-contact-body-center-items.only-1 .application-contact-body-center-items-left {
+	width: 80%;
+}
+.application-contact-body-end {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.application-contact-body-end .application-contact-body-end-content {
+	display: flex;
+	background: #ECEDEF;
+	justify-content: space-between;
+	text-align: center;
+	align-items: center;
+	gap: 5px;
+	padding: 15px;
+	border-radius: 15px;
+	text-decoration: none;
+}
+
+.application-contact-body-end .application-contact-body-end-content h3 {
+	color: #000000;
+	font-weight: 600;
+	font-size: 17px;
+}
+
+@media (max-height: 750px) {
+	.application-contact-body .application-contact-body-top .first-span {
+		font-size: 18px;
+	}
+	.application-contact-body .application-contact-body-top span {
+		font-size: 14px;
+	}
+	.application-contact-body .application-contact-body-top {
+		padding: 15px;
+		width: calc(100% - 30px);
+	}
+	.application-contact-body-top img {
+		width: 40px;
+		height: 40px;
+	}
+	.application-contact-body .application-contact-body-center h1 {
+		font-size: 18px;
+	}
+	.application-contact-body .application-contact-body-center .application-contact-body-center-items .application-contact-body-center-items-left h4, .application-contact-body .application-contact-body-center .application-contact-body-center-items .application-contact-body-center-items-right h4 {
+		font-size: 16px;
+	}
+	.application-contact-body .application-contact-body-center .application-contact-body-center-items .application-contact-body-center-items-left p, .application-contact-body .application-contact-body-center .application-contact-body-center-items .application-contact-body-center-items-right p {
+		font-size: 13px;
+	}
+	.application-contact-body .application-contact-body-center {
+		gap: 15px;
+	}
+	.application-contact-body-end .application-contact-body-end-content {
+		padding: 10px;
+	}
+	.application-contact-body-end .application-contact-body-end-content h3 {
+		font-size: 14px;
+	}
+	.application-contact-body-end .application-contact-body-end-content img {
+		width: 20px;
+		height: 20px;
+	}
+}
+
+@media screen and (max-width: 375px) {
+	.application-contact-header h1 {
+		font-size: 19px;
+	}
+}

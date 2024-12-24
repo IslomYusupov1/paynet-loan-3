@@ -10,6 +10,7 @@ import {API_VERSION} from "../constants/AppConstants.ts";
 export interface ApiProps {
   readonly host: string;
   readonly token?: string;
+  readonly ip?: string;
   readonly logout?: () => void;
   readonly reGetToken?: (options: NormalizedOptions) => void;
 }
@@ -23,12 +24,14 @@ export interface Options extends KYOptions {
 export class BaseApi {
   private readonly host: string;
   private readonly token?: string;
+  private readonly ip?: string;
   readonly reGetToken?: (options: NormalizedOptions) => void;
   readonly logout?: () => void;
 
-  constructor({ host, token, reGetToken, logout }: ApiProps) {
+  constructor({ host, token, reGetToken, logout, ip }: ApiProps) {
     this.host = host;
     this.token = token;
+    this.ip = ip
     this.logout = logout;
     this.reGetToken = reGetToken;
   }
@@ -47,8 +50,10 @@ export class BaseApi {
     const { hooks = {} as Hooks, headers: optionHeaders = [] as any } = options;
     const headers = new Headers(optionHeaders);
     // headers.set("language".toLocaleUpperCase(), "rus");
-
     headers.set("Authorization", `Basic ${this.token}`);
+    if (this.ip) {
+      headers.set("X-Webview-" + "ip".toUpperCase(), this.ip);
+    }
 
     return {
       timeout: 200000,
@@ -60,8 +65,7 @@ export class BaseApi {
         beforeRequest: [...(hooks?.beforeRequest || [])],
         // beforeRetry: [
         //   async ({ request }) => {
-        //     const token = await ky("https://example.com/refresh-token");
-        //     request.headers.set("Authorization", `token ${token}`);
+        //     request.headers.set("Authorization", this.ip);
         //   },
         // ],
         // afterResponse: [
@@ -87,63 +91,63 @@ export class BaseApi {
   private jsonRequest<TData>(url: string, options?: Options): Promise<TData> {
     return new Promise<TData>((resolve, reject) => {
       this.request(url, options)
-        .then((response) => {
-          if (response.ok) {
-            if (response.status === 201) {
-              return response.json();
-            } else if (response.status === 204) {
-              return response;
-            } else {
-              return response.json().then((data: any) => {
-                if (data.success && data.data) {
-                  return data.data;
-                } else if (data) {
-                  return data;
-                } else {
-                  return this.parseError(data);
-                }
-              });
+          .then((response) => {
+            if (response.ok) {
+              if (response.status === 201) {
+                return response.json();
+              } else if (response.status === 204) {
+                return response;
+              } else {
+                return response.json().then((data: any) => {
+                  if (data.success && data.data) {
+                    return data.data;
+                  } else if (data) {
+                    return data;
+                  } else {
+                    return this.parseError(data);
+                  }
+                });
+              }
             }
-          }
-          return response
-            .json()
-            .then((data: any) => this.parseError(data))
-            .then((error) => {
-              throw error;
-            });
-        })
-        .then(resolve)
-        .catch((error) => {
-          if (error instanceof AppError) {
-            reject(error);
-          } else if (error?.response?.json) {
-            error?.response?.json().then((data: Response) =>
+            return response
+                .json()
+                .then((data: any) => this.parseError(data))
+                .then((error) => {
+                  throw error;
+                });
+          })
+          .then(resolve)
+          .catch((error) => {
+            if (error instanceof AppError) {
+              reject(error);
+            } else if (error?.response?.json) {
+              error?.response?.json().then((data: Response) =>
+                  reject(
+                      this.parseError({
+                        ...data,
+                        status: error?.response?.status,
+                        // errors: [{ userMsg: error.message }],
+                      } as any),
+                  ),
+              );
+            } else if (error) {
               reject(
-                this.parseError({
-                  ...data,
-                  status: error?.response?.status,
-                  // errors: [{ userMsg: error.message }],
-                } as any),
-              ),
-            );
-          } else if (error) {
-            reject(
-              this.parseError({
-                statusText: error.message,
-                status: error?.response?.status,
-                errors: [{ userMsg: error.message }],
-              } as any),
-            );
-          } else {
-            reject(
-              this.parseError({
-                statusText: "Unknown",
-                status: error?.response?.status,
-                errors: [{ userMsg: "Unknown" }],
-              } as any),
-            );
-          }
-        });
+                  this.parseError({
+                    statusText: error.message,
+                    status: error?.response?.status,
+                    errors: [{ userMsg: error.message }],
+                  } as any),
+              );
+            } else {
+              reject(
+                  this.parseError({
+                    statusText: "Unknown",
+                    status: error?.response?.status,
+                    errors: [{ userMsg: "Unknown" }],
+                  } as any),
+              );
+            }
+          });
     });
   }
 

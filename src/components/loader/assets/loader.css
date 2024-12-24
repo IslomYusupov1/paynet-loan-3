@@ -2,14 +2,15 @@
     display: flex;
     gap: 10px;
     position: absolute;
-    top: 20px;
-    right: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .dot-loader div {
     width: 15px;
     height: 15px;
-    background: #FFFFFF;
+    background: black;
     border-radius: 50%;
     animation: bounce 1.2s infinite;
 }

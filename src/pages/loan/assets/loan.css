@@ -4,10 +4,12 @@
     font-family: "Nunito", sans-serif;
     height: 100vh;
     z-index: 1;
+    overflow: hidden;
     background: #FFFFFF;
 }
 .loan-page-wrapper {
     display: flex;
+    overflow: auto;
     flex-direction: column;
     padding: 0 15px;
     height: 100%;
@@ -18,6 +20,7 @@
     display: flex;
     align-items: center;
     gap: 20px;
+    height: 5vh;
 }
 .loan-page-header p {
     font-size: 20px;
@@ -35,8 +38,9 @@
 .styled-input {
     width: calc(100% - 30px);
     height: 48px;
-    padding: 20px 15px 0 15px;
+    padding: 20px 15px 5px 15px;
     border: none;
+    font-family: "Nunito", sans-serif;
     font-size: 19px;
     background-color: #ECEDEF;
     font-weight: 500;
@@ -44,9 +48,13 @@
     border-radius: 20px;
     outline: none;
 }
+.styled-input.required {
+    border: 1px solid red;
+    border-radius: 20px;
+}
 .filled-input-wrapper {
     position: relative;
-    height: 68px;
+    /*height: 68px;*/
     width: 100%;
 }
 .filled-input-wrapper .label {
@@ -76,7 +84,7 @@
 .slider-container {
     background: #f0f1f3;
     padding: 10px 20px;
-    margin-top: 50px;
+    margin-top: 30px;
     margin-bottom: 30px;
     border-radius: 20px;
     display: flex;
@@ -147,7 +155,7 @@ input[type="range"]::-moz-range-thumb {
 
 .month-field {
     background: #ECEDEF;
-    height: 68px;
+    height: 73px;
     position: relative;
     padding: 0 0 0 15px;
     width: calc(100% - 15px);
@@ -156,6 +164,9 @@ input[type="range"]::-moz-range-thumb {
     align-items: center;
     text-align: start;
     border-radius: 20px;
+}
+.month-field.required {
+    border: 1px solid red;
 }
 .month-field label {
     font-size: 19px;
@@ -186,7 +197,6 @@ input[type="range"]::-moz-range-thumb {
     align-items: center;
     color: #92929A;
     font-size: 19px;
-    transition: 0.2s ease-in-out;
     font-weight: 600;
     z-index: 0;
     pointer-events: none;
@@ -202,10 +212,12 @@ input[type="range"]::-moz-range-thumb {
     position: absolute;
     top: 0;
     font-size: 19px;
+    transition: 0.2s ease-in-out;
     font-weight: 500;
 }
 .month-field .month-label label.active {
     top: -12px;
+    position: absolute;
     font-size: 14px;
 }
 .month-field .month-label span {
@@ -218,6 +230,7 @@ input[type="range"]::-moz-range-thumb {
 .loan-page-footer {
     position: absolute;
     bottom: 30px;
+    /*height: 12vh;*/
     gap: 18px;
     display: flex;
     flex-direction: column;
@@ -232,23 +245,35 @@ input[type="range"]::-moz-range-thumb {
     gap: 10px;
     align-items: center;
 }
+.loan-page-footer .checkbox-block.hidden {
+    display: none;
+}
 .loan-page-footer .checkbox-block .checkbox-text {
     font-weight: 500;
     font-size: 15px;
-    color: #000000;
-    line-height: 16.5px;
+    color: #18AD4F;
+    line-height: 17px;
+    text-decoration: underline;
 }
 .loan-page-footer button {
-    background: #E0FCE6;
+    background: #13AE4E;
     width: 100%;
     height: 56px;
+    position: relative;
     border-radius: 52px;
     border: none;
     font-size: 19px;
     font-weight: 500;
-    color: #AEDCC4;
+    color: white;
     transition: 0.1s ease-in-out;
     outline: none;
+}
+.loan-page-footer button .loader {
+    top: 10px;
+}
+.loan-page-footer button:disabled {
+    background: #E0FCE6;
+    color: #AEDCC4;
 }
 .loan-page-footer button.checked {
     background: #13AE4E;
@@ -302,7 +327,10 @@ input[type="range"]::-moz-range-thumb {
 .loan-page-body-contact {
     display: flex;
     flex-direction: column;
-    gap: 30px
+    gap: 30px;
+    padding: 4px;
+    height: calc(100vh - 10vh - 200px);
+    overflow: auto;
 }
 .loan-page-body-contact .loan-page-body-contact-content {
     display: flex;
@@ -311,10 +339,125 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .loan-page-body-contact .loan-page-body-contact-content p {
-    font-weight: 700;
+    font-weight: 600;
     font-size: 20px;
     color: #000000;
 }
 .calendar-popup {
     background: white;
+}
+.relation-content-popup {
+    display: flex;
+    flex-direction: column;
+}
+.relation-content-popup div {
+    padding: 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+.relation-content-popup div:last-child {
+    border-bottom: 0;
+}
+.relation-content-popup div span {
+    font-weight: 500;
+    font-size: 19px;
+    color: #000000;
+}
+.loan-day-picker {
+    padding: 20px;
+    overflow: auto;
+    height: 100%;
+}
+.loan-day-picker h3:first-child {
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+.loan-day-picker h3:last-child {
+    border-bottom: none
+}
+.loan-day-picker h3 {
+    padding: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+@media (max-width: 400px) {
+    .loan-page-header p,.loan-page-body-contact .loan-page-body-contact-content p {
+        font-size: 18px;
+    }
+    .filled-input-wrapper .label, .month-field .month-label label {
+        font-size: 17px;
+    }
+    .styled-input, .month-field .month-label span {
+        font-size: 18px;
+    }
+    .checkbox-mark {
+        width: 29px;
+        height: 29px;
+    }
+    .loan-page-footer .checkbox-block .checkbox-text {
+        font-size: 14px;
+    }
+    .loan-page-footer button {
+        font-size: 18px;
+        height: 50px;
+    }
+}
+@media (max-width: 375px) {
+    .input-info-text {
+        font-size: 13px;
+    }
+    .filled-input-wrapper .label {
+        font-size: 15px;
+        top: 19px;
+    }
+    .month-field .month-label img {
+        top: -4px;
+    }
+    .filled-input-wrapper:focus-within .label,
+    .filled-input-wrapper .label.active {
+        top: 7px;
+        font-size: 12px;
+    }
+    .styled-input {
+        font-size: 17px;
+        height: 36px;
+    }
+    .month-field .month-label label {
+        font-size: 15px;
+        top: -5px;
+    }
+    .month-field .month-label span {
+        font-size: 17px;
+        top: 4px;
+    }
+    .slider-value {
+        font-size: 17px;
+    }
+    .slider-label {
+        font-size: 13px;
+    }
+    .month-field .month-label label.active {
+        top: -17px;
+    }
+    .loan-page-header p {
+        font-size: 17px !important;
+        line-height: 17px !important;
+    }
+    .loan-page-body-contact .loan-page-body-contact-content p {
+        font-size: 17px !important;
+    }
+    .month-field {
+        height: 61px !important;
+    }
+    .checkbox-mark{
+        width: 25px;
+        height: 25px;
+    }
+    .loan-page-footer .checkbox-block .checkbox-text {
+        font-size: 13px;
+    }
+    .loan-page-footer button {
+        height: 45px;
+        font-size: 17px;
+    }
+    .loan-page-footer {
+        gap: 8px;
+    }
 }

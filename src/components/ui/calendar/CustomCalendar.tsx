@@ -35,7 +35,7 @@ const CustomCalendar = ({ setDate, close }: Props) => {
 
     return (
         <div className="calendar-container">
-            <h2>Дата отправления</h2>
+            <h2>Дата погашения</h2>
             <Calendar
                 onChange={handleDateChange}
                 value={selectedDate}

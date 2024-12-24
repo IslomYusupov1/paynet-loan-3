@@ -3,6 +3,7 @@ import { API_HOST } from "../constants/AppConstants";
 
 export interface ApiContextDataProps {
   readonly token?: string;
+  readonly ip?: string;
 }
 
 export interface ApiContextProps {
