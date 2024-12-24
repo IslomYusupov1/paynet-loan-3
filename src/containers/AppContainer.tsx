@@ -10,7 +10,8 @@ function AppContainer() {
 
         if (/iPhone|iPad|iPod/i.test(userAgent)) {
             // Проверяем, поддерживается ли env(safe-area-inset-top)
-            let safeAreaTop = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('env(safe-area-inset-top)')) || 44; // Если значение не возвращается, используем 44
+            //@ts-ignore
+            let safeAreaTop = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('env(safe-area-inset-top)', 44)); // Если значение не возвращается, используем 44
             headerElement.style.paddingTop = `${safeAreaTop}px`;
         } else {
             // Android: фиксированный расчет
