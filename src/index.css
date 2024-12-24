@@ -16,7 +16,7 @@ p , h2, span, h1, h3, h4, h5, h6 {
 }
 .main-height-container {
   margin: 0;
-  padding-top: 48px;
+  /*padding-top: 48px;*/
 }
 .face-container {
   width: 100%;
